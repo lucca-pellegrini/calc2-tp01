@@ -21,7 +21,7 @@ OBJ_DIR  = $(OUT_DIR)/obj
 CC       = gcc
 
 # Opções que definem a versão de C, nível de otimização, e símbolos para debug.
-CFLAGS  += -std=c99 -O3 -g
+CFLAGS  += -std=c23 -O3 -g
 
 # Opções de diagnóstico.
 CFLAGS  += -Wall -Wextra -pedantic
