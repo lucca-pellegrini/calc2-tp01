@@ -27,7 +27,7 @@ CFLAGS  += -std=c23 -O3 -g
 CFLAGS  += -Wall -Wextra -pedantic
 
 # Opções do linker (para incluir objetos compartilhados).
-LDFLAGS += -lm
+LDFLAGS +=
 
 # Quais são as fontes, os objetos compilados, os cabeçalhos, e o programa
 # principal.

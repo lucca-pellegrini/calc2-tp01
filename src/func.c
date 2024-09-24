@@ -1,4 +1,3 @@
-#include <math.h>
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -98,9 +97,10 @@ static void polynomial_free(Polynomial *restrict p)
 extern double polynomial_eval(const double x, const Polynomial *restrict p)
 {
 	double acc = 0;
+	double x_pow = 1;
 
-	for (size_t i = 0; i <= p->degree; ++i)
-		acc += p->coefficients[i] * pow(x, i);
+	for (size_t i = 0; i <= p->degree; ++i, x_pow *= x)
+		acc += p->coefficients[i] * x_pow;
 
 	return acc;
 }
