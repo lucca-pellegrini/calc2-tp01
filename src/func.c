@@ -32,8 +32,8 @@ Function *function_new(const FunctionType t, ...)
 		va_start(args, t);
 		size_t degrees = va_arg(args, size_t);
 		double *coeffs = va_arg(args, double *);
-		f->func = polynomial_new(degrees, coeffs);
 		va_end(args);
+		f->func = polynomial_new(degrees, coeffs);
 		f->eval = (eval_ptr_t)&polynomial_eval;
 		break;
 	default:
