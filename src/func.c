@@ -17,7 +17,7 @@ typedef struct {
 static Polynomial *polynomial_new(const size_t degree,
 				  const double *restrict coeffs);
 static void polynomial_free(Polynomial *restrict p);
-double polynomial_eval(const double x, const Polynomial *restrict p);
+extern double polynomial_eval(const double x, const Polynomial *restrict p);
 
 // Instancia uma função arbitrária a partir de um tipo.
 [[nodiscard("Ignorar retorno pode causar vazamento de memória")]]
@@ -95,7 +95,7 @@ static void polynomial_free(Polynomial *restrict p)
 	free(p);
 }
 
-double polynomial_eval(const double x, const Polynomial *restrict p)
+extern double polynomial_eval(const double x, const Polynomial *restrict p)
 {
 	double acc = 0;
 
