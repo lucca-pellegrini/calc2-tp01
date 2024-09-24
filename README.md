@@ -1,17 +1,3 @@
----
-lang: pt-BR
----
+# Trabalho Prático 1
 
-# Exprbin
-## Descrição
-
-O programa recebe uma expressão de lógica binária e mostra a sua
-tabela-verdade. Os operadores suportados são, em ordem decrescente de
-precedência:
-
-- Parenteses: `()`
-- Negação: `~`
-- E: `∧` ou `^`
-- Ou: `∨`, `v` ou `u`
-- Se então: `→` ou `>`
-- Se e somente se: `↔` ou `=`
+Aqui se encontra o primeiro trabalho prático de Cálculo 2 (1588100) de 2024/2.
