@@ -9,7 +9,7 @@ int main(void)
 	double coefs[] = { 0, 0, 2 };
 	Function *p = function_new(POLYNOMIAL, 2, coefs);
 
-	printf("%g\n", riemann(0, 1, p, 1000, ESQUERDA));
+	printf("%g\n", riemann(0, 1, p, 1 << 20, ESQUERDA));
 
 	function_free(p);
 	return EXIT_SUCCESS;
