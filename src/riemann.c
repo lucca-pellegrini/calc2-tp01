@@ -29,7 +29,7 @@ static double riemann_esq(const double a, Function *restrict func,
 	double sum = 0;
 
 	for (size_t i = 0; i < n; ++i)
-		sum += func->eval(a + i * dx, func->func);
+		sum += func->eval(a + i * dx, func->impl);
 
 	return sum * dx;
 }
@@ -40,7 +40,7 @@ static double riemann_dir(const double a, Function *restrict func,
 	double sum = 0;
 
 	for (size_t i = 1; i <= n; ++i)
-		sum += func->eval(a + i * dx, func->func);
+		sum += func->eval(a + i * dx, func->impl);
 
 	return sum * dx;
 }

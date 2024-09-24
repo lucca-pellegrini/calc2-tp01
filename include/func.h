@@ -14,7 +14,7 @@ typedef typeof(double (*)(const double, void *restrict)) eval_ptr_t;
 typedef struct {
 	FunctionType type;
 	eval_ptr_t eval;
-	void *func;
+	void *impl;
 } Function;
 
 // Métodos das funções genéricas.

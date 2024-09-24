@@ -33,7 +33,7 @@ Function *function_new(const FunctionType t, ...)
 		size_t degrees = va_arg(args, size_t);
 		double *coeffs = va_arg(args, double *);
 		va_end(args);
-		f->func = polynomial_new(degrees, coeffs);
+		f->impl = polynomial_new(degrees, coeffs);
 		f->eval = (eval_ptr_t)&polynomial_eval;
 		break;
 	default:
@@ -41,7 +41,7 @@ Function *function_new(const FunctionType t, ...)
 		goto cleanup;
 	}
 
-	ERRNOCHECK(f->func == NULL, "polynomial_new() é NULL", cleanup);
+	ERRNOCHECK(f->impl == NULL, "polynomial_new() é NULL", cleanup);
 	f->type = t;
 	return f;
 
@@ -55,7 +55,7 @@ void function_free(Function *restrict f)
 {
 	switch (f->type) {
 	case POLYNOMIAL:
-		polynomial_free(f->func);
+		polynomial_free(f->impl);
 		break;
 	default:
 		fprintf(stderr, "FATAL: impossível liberar %d\n", f->type);
@@ -65,7 +65,7 @@ void function_free(Function *restrict f)
 	free(f);
 }
 
-// Métodos dos diferentes tipos de função.
+// Implementação dos diferentes tipos de função.
 
 static Polynomial *polynomial_new(const size_t degree,
 				  const double *restrict coeffs)
