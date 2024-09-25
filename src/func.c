@@ -1,3 +1,16 @@
+/**
+ * @file func.c
+ * @brief Implementações das funções genéricas e específicas de polinômios.
+ *
+ * @details Este arquivo contém as implementações das funções genéricas e
+ * específicas para manipulação de funções abstratas e polinômios. Ele inclui
+ * a criação, avaliação e liberação de funções genéricas, bem como as
+ * implementações específicas para funções do tipo polinômio. A estrutura
+ * `Function` é utilizada para encapsular diferentes tipos de funções, e as
+ * funções aqui definidas permitem a manipulação dessas estruturas de maneira
+ * uniforme.
+ */
+
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,9 +20,26 @@
 #include "util.h"
 
 // Definições dos tipos de funções.
+
+/**
+ * @brief Estrutura que define um polinômio clássico de grau arbitrário.
+ *
+ * @details A estrutura `Polynomial` é usada para representar um polinômio de
+ * grau arbitrário. Os coeficientes dos termos do polinômio são armazenados em
+ * ordem crescente de grau. Isso significa que o coeficiente do termo constante
+ * (grau 0) vem primeiro, seguido pelo coeficiente do termo de grau 1, e assim
+ * por diante.
+ *
+ * Por exemplo, para um polinômio \f$f(x) = 1 + 2x^2 + 3x^4\f$, o grau será 4,
+ * e o arranjo dos coeficientes será: \f$\{1, 0, 2, 0, 3\}\f$.
+ */
 typedef struct {
-	size_t degree; // Grau do polinômio.
-	double *coefficients; // Coeficientes dos termos. Grau crescente.
+	size_t degree; /**< O grau do polinômio, que é o maior expoente com um
+                        * coeficiente não zero. */
+	double *coefficients; /**< Um ponteiro para um array de coeficientes
+			       * dos termos do polinômio, armazenados em ordem
+			       * crescente de grau. O comprimento deste array é
+			       * \f$\text{degree} + 1\f$. */
 } Polynomial;
 
 // Declarações internas.
@@ -75,10 +105,18 @@ void function_free(Function *func)
 // Implementação dos diferentes tipos de função.
 // Funções de tipo polinômio:
 
-// Instancia um objeto que implementa uma função de tipo polinômio. Recebe um
-// grau (número natural) e um arranjo com os coeficientes, em ordem crescente.
-// Ex.: Para um f(x) = 1 + 2x² + 3x⁴, o grau será 4, e o arranjo será:
-// {1, 0, 2, 0, 3}.
+/**
+ * @brief Instancia um objeto que implementa uma função de tipo polinômio.
+ *
+ * Recebe um grau (número natural) e um arranjo com os coeficientes, em ordem
+ * crescente. Ex.: Para um \f$f(x) = 1 + 2x^2 + 3x^4\f$, o grau será 4, e o
+ * arranjo será: \f${1, 0, 2, 0, 3}\f$.
+ *
+ * @param degree O grau do polinômio.
+ * @param coeffs Arranjo com os coeficientes do polinômio. Seu tamanho deve ser
+ * no mínimo \f$\left(\text{grau}- 1\right)\f$.
+ * @return Ponteiro para o objeto polinômio criado.
+ */
 static Polynomial *polynomial_new(size_t degree, double *coeffs)
 {
 	// Aloca memória para o objeto e verifica se houve erro.
@@ -103,16 +141,27 @@ ret:
 	return NULL;
 }
 
-// Libera um objeto que implementa uma função de tipo polinômio.
+/**
+ * @brief Libera um objeto que implementa uma função de tipo polinômio.
+ *
+ * @param ptr Ponteiro para o objeto polinômio a ser liberado.
+ */
 static void polynomial_free(Polynomial *ptr)
 {
 	free(ptr->coefficients); // Libera arranjo dos coeficientes.
 	free(ptr); // Libera o objeto em si.
 }
 
-// Avalia um dado objeto polinômio passado pela referência `ptr` e o avalia em
-// um dado `x`. Essa função é definida com linkagem externa pois não é invocada
-// nessa unidade de translação.
+/**
+ * @brief Avalia um dado objeto polinômio passado pela referência `ptr` em um
+ * dado `x`.
+ *
+ * @param x O valor em que o polinômio será avaliado.
+ * @param ptr Ponteiro para o objeto polinômio.
+ * @return O valor do polinômio avaliado em `x`.
+ * @note Essa função é definida com vinculação externa pois não é invocada
+ * nessa unidade de compilação.
+ */
 extern double polynomial_eval(double x, Polynomial *ptr)
 {
 	double res = 0; // Valor de resposta a calcular.

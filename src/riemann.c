@@ -1,3 +1,14 @@
+/**
+ * @file riemann.c
+ * @brief Implementação das somas de Riemann para integração numérica.
+ *
+ * @details Este arquivo contém as implementações das funções para calcular a
+ * integral de uma função genérica usando somas de Riemann. As somas podem ser
+ * calculadas utilizando a extremidade direita ou esquerda dos retângulos. As
+ * funções aqui definidas permitem a integração numérica de funções encapsuladas
+ * na estrutura `Function`.
+ */
+
 #include <stdio.h>
 
 #include "riemann.h"
@@ -30,10 +41,21 @@ double riemann(double min, double max, Function *func, size_t num, SumType type)
 	}
 }
 
-// Implementação da soma de Riemann pela direita. Para cada `i` no intervalo
-// [1, n], invocamos o método `eval` da função `func`, assim avaliando a função
-// arbitrária `func` em um x = a + i·Δx, onde `a` é o limite inicial da
-// integração, e `n` é p número de retângulos.
+/**
+ * @brief Calcula a soma de Riemann pela direita.
+ *
+ * @details Para cada \f$i\f$ no intervalo \f$[1, n]\f$, esta função avalia a
+ * função arbitrária `func` em \f$x = a + i \cdot \Delta x\f$, onde \f$a\f$ é o
+ * limite inicial da integração, e \f$n\f$ é o número de retângulos. O
+ * resultado é acumulado e multiplicado pela base dos retângulos (\f$\Delta
+ * x\f$).
+ *
+ * @param a Limite inicial da integração.
+ * @param func Ponteiro para a função a ser integrada.
+ * @param n Número de retângulos.
+ * @param dx Largura de cada retângulo.
+ * @return O valor aproximado da integral.
+ */
 static double riemann_dir(double a, Function *func, size_t n, double dx)
 {
 	double res = 0; // Acumula resultado das somas.
@@ -45,8 +67,22 @@ static double riemann_dir(double a, Function *func, size_t n, double dx)
 	return res * dx;
 }
 
-// Implementação da soma de Riemann pela esquerda. Funciona exatamente da mesma
-// forma que `riemann_dir()`, exceto que o intervalo é [0, n[.
+
+/**
+ * @brief Calcula a soma de Riemann pela esquerda.
+ *
+ * @details Para cada \f$i\f$ no intervalo \f$[0, n)\f$, esta função avalia a
+ * função arbitrária `func` em \f$x = a + i \cdot \Delta x\f$, onde \f$a\f$ é o
+ * limite inicial da integração, e \f$n\f$ é o número de retângulos. O
+ * resultado é acumulado e multiplicado pela base dos retângulos (\f$\Delta
+ * x\f$).
+ *
+ * @param a Limite inicial da integração.
+ * @param func Ponteiro para a função a ser integrada.
+ * @param n Número de retângulos.
+ * @param dx Largura de cada retângulo.
+ * @return O valor aproximado da integral.
+ */
 static double riemann_esq(double a, Function *func, size_t n, double dx)
 {
 	double res = 0;
