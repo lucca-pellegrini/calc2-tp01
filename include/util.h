@@ -4,7 +4,7 @@
 
 #include <errno.h>
 
-#define ERRNOCHECK(condition, errmsg, lbl)                             \
+#define ERRNOCHECK(condition, errmsg, label)                           \
 	do {                                                           \
 		if (condition) {                                       \
 			int errsv = errno;                             \
@@ -12,7 +12,7 @@
 				__LINE__, __func__);                   \
 			errno = errsv;                                 \
 			perror((errmsg));                              \
-			goto lbl;                                      \
+			goto label;                                    \
 		}                                                      \
 	} while (0)
 

@@ -14,53 +14,54 @@ typedef struct {
 
 // Declarações internas.
 static Polynomial *polynomial_new(size_t degree, double *coeffs);
-static void polynomial_free(Polynomial *p);
-extern double polynomial_eval(double x, Polynomial *p);
+static void polynomial_free(Polynomial *ptr);
+extern double polynomial_eval(double x, Polynomial *ptr);
 
 // Instancia uma função arbitrária a partir de um tipo.
 [[nodiscard("Ignorar retorno pode causar vazamento de memória")]]
-Function *function_new(FunctionType t, ...)
+Function *function_new(FunctionType type, ...)
 {
 	va_list args;
-	Function *f = malloc(sizeof(typeof(*f)));
-	ERRNOCHECK(f == NULL, "Falha ao alocar memória para função", cleanup);
+	Function *func = malloc(sizeof(typeof(*func)));
+	ERRNOCHECK(func == NULL, "Falha ao alocar memória para função",
+		   cleanup);
 
-	switch (t) {
+	switch (type) {
 	case POLYNOMIAL:
 		va_start(args, t);
 		size_t degrees = va_arg(args, size_t);
 		double *coeffs = va_arg(args, double *);
 		va_end(args);
-		f->impl = polynomial_new(degrees, coeffs);
-		f->eval = (eval_ptr_t)&polynomial_eval;
+		func->impl = polynomial_new(degrees, coeffs);
+		func->eval = (eval_ptr_t)&polynomial_eval;
 		break;
 	default:
-		fprintf(stderr, "Tipo de função desconhecido: %d\n", t);
+		fprintf(stderr, "Tipo de função desconhecido: %d\n", type);
 		goto cleanup;
 	}
 
-	ERRNOCHECK(f->impl == NULL, "f->impl é NULL", cleanup);
-	f->type = t;
-	return f;
+	ERRNOCHECK(func->impl == NULL, "func->impl é NULL", cleanup);
+	func->type = type;
+	return func;
 
 cleanup:
-	free(f);
+	free(func);
 	return NULL;
 }
 
 // Libera uma função arbitrária.
-void function_free(Function *f)
+void function_free(Function *func)
 {
-	switch (f->type) {
+	switch (func->type) {
 	case POLYNOMIAL:
-		polynomial_free(f->impl);
+		polynomial_free(func->impl);
 		break;
 	default:
-		fprintf(stderr, "FATAL: impossível liberar %d\n", f->type);
+		fprintf(stderr, "FATAL: impossível liberar %d\n", func->type);
 		exit(EXIT_FAILURE);
 	}
 
-	free(f);
+	free(func);
 }
 
 // Implementação dos diferentes tipos de função.
@@ -86,19 +87,19 @@ ret:
 	return NULL;
 }
 
-static void polynomial_free(Polynomial *p)
+static void polynomial_free(Polynomial *ptr)
 {
-	free(p->coefficients);
-	free(p);
+	free(ptr->coefficients);
+	free(ptr);
 }
 
-extern double polynomial_eval(double x, Polynomial *p)
+extern double polynomial_eval(double x, Polynomial *ptr)
 {
-	double acc = 0;
+	double res = 0;
 	double x_pow = 1;
 
-	for (size_t i = 0; i <= p->degree; ++i, x_pow *= x)
-		acc += p->coefficients[i] * x_pow;
+	for (size_t i = 0; i <= ptr->degree; ++i, x_pow *= x)
+		res += ptr->coefficients[i] * x_pow;
 
-	return acc;
+	return res;
 }

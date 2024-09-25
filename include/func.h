@@ -17,7 +17,7 @@ typedef struct {
 
 // Métodos das funções genéricas.
 [[nodiscard("Ignorar retorno pode causar vazamento de memória")]]
-Function *function_new(FunctionType t, ...);
-void function_free(Function *f);
+Function *function_new(FunctionType type, ...);
+void function_free(Function *func);
 
 #endif // !FUNC_H

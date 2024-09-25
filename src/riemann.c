@@ -6,37 +6,37 @@
 static double riemann_esq(double a, Function *func, size_t n, double dx);
 static double riemann_dir(double a, Function *func, size_t n, double dx);
 
-double riemann(double a, double b, Function *func, size_t n, SumType t)
+double riemann(double min, double max, Function *func, size_t num, SumType type)
 {
-	double dx = (b - a) / n;
+	double dx = (max - min) / num;
 
-	switch (t) {
+	switch (type) {
 	case ESQUERDA:
-		return riemann_esq(a, func, n, dx);
+		return riemann_esq(min, func, num, dx);
 	case DIREITA:
-		return riemann_dir(a, func, n, dx);
+		return riemann_dir(min, func, num, dx);
 	default:
-		fprintf(stderr, "FATAL: tipo de soma inexistente: %d\n", t);
+		fprintf(stderr, "FATAL: tipo de soma inexistente: %d\n", type);
 		exit(EXIT_FAILURE);
 	}
 }
 
 static double riemann_esq(double a, Function *func, size_t n, double dx)
 {
-	double sum = 0;
+	double res = 0;
 
 	for (size_t i = 0; i < n; ++i)
-		sum += func->eval(a + i * dx, func->impl);
+		res += func->eval(a + i * dx, func->impl);
 
-	return sum * dx;
+	return res * dx;
 }
 
 static double riemann_dir(double a, Function *func, size_t n, double dx)
 {
-	double sum = 0;
+	double res = 0;
 
 	for (size_t i = 1; i <= n; ++i)
-		sum += func->eval(a + i * dx, func->impl);
+		res += func->eval(a + i * dx, func->impl);
 
-	return sum * dx;
+	return res * dx;
 }
