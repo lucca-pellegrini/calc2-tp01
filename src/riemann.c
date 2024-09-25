@@ -3,14 +3,12 @@
 #include "riemann.h"
 #include "func.h"
 
-static double riemann_esq(const double a, Function *restrict func,
-			  const size_t n, const double dx);
-static double riemann_dir(const double a, Function *restrict func,
-			  const size_t n, const double dx);
+static double riemann_esq(double a, Function *func, size_t n, double dx);
+static double riemann_dir(double a, Function *func, size_t n, double dx);
 
-double riemann(double a, double b, Function *restrict func, size_t n, SumType t)
+double riemann(double a, double b, Function *func, size_t n, SumType t)
 {
-	const double dx = (b - a) / n;
+	double dx = (b - a) / n;
 
 	switch (t) {
 	case ESQUERDA:
@@ -23,8 +21,7 @@ double riemann(double a, double b, Function *restrict func, size_t n, SumType t)
 	}
 }
 
-static double riemann_esq(const double a, Function *restrict func,
-			  const size_t n, const double dx)
+static double riemann_esq(double a, Function *func, size_t n, double dx)
 {
 	double sum = 0;
 
@@ -34,8 +31,7 @@ static double riemann_esq(const double a, Function *restrict func,
 	return sum * dx;
 }
 
-static double riemann_dir(const double a, Function *restrict func,
-			  const size_t n, const double dx)
+static double riemann_dir(double a, Function *func, size_t n, double dx)
 {
 	double sum = 0;
 

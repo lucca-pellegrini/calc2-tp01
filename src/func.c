@@ -9,21 +9,20 @@
 // Definições dos tipos de funções.
 typedef struct {
 	size_t degree; // Grau do polinômio.
-	double *restrict coefficients; // Coeficientes dos termos.
+	double *coefficients; // Coeficientes dos termos.
 } Polynomial;
 
 // Declarações internas.
-static Polynomial *polynomial_new(const size_t degree,
-				  const double *restrict coeffs);
-static void polynomial_free(Polynomial *restrict p);
-extern double polynomial_eval(const double x, const Polynomial *restrict p);
+static Polynomial *polynomial_new(size_t degree, double *coeffs);
+static void polynomial_free(Polynomial *p);
+extern double polynomial_eval(double x, Polynomial *p);
 
 // Instancia uma função arbitrária a partir de um tipo.
 [[nodiscard("Ignorar retorno pode causar vazamento de memória")]]
-Function *function_new(const FunctionType t, ...)
+Function *function_new(FunctionType t, ...)
 {
 	va_list args;
-	Function *restrict f = malloc(sizeof(typeof(*f)));
+	Function *f = malloc(sizeof(typeof(*f)));
 	ERRNOCHECK(f == NULL, "Falha ao alocar memória para função", cleanup);
 
 	switch (t) {
@@ -50,7 +49,7 @@ cleanup:
 }
 
 // Libera uma função arbitrária.
-void function_free(Function *restrict f)
+void function_free(Function *f)
 {
 	switch (f->type) {
 	case POLYNOMIAL:
@@ -66,10 +65,9 @@ void function_free(Function *restrict f)
 
 // Implementação dos diferentes tipos de função.
 
-static Polynomial *polynomial_new(const size_t degree,
-				  const double *restrict coeffs)
+static Polynomial *polynomial_new(size_t degree, double *coeffs)
 {
-	Polynomial *restrict p = malloc(sizeof(Polynomial));
+	Polynomial *p = malloc(sizeof(Polynomial));
 	ERRNOCHECK(p == NULL, "Falha ao alocar memória para polinômio", ret);
 
 	p->degree = degree;
@@ -88,13 +86,13 @@ ret:
 	return NULL;
 }
 
-static void polynomial_free(Polynomial *restrict p)
+static void polynomial_free(Polynomial *p)
 {
 	free(p->coefficients);
 	free(p);
 }
 
-extern double polynomial_eval(const double x, const Polynomial *restrict p)
+extern double polynomial_eval(double x, Polynomial *p)
 {
 	double acc = 0;
 	double x_pow = 1;
