@@ -39,7 +39,7 @@ Function *function_new(FunctionType t, ...)
 		goto cleanup;
 	}
 
-	ERRNOCHECK(f->impl == NULL, "polynomial_new() é NULL", cleanup);
+	ERRNOCHECK(f->impl == NULL, "f->impl é NULL", cleanup);
 	f->type = t;
 	return f;
 
