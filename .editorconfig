@@ -7,10 +7,13 @@ root = true
 
 # Options below match all files (`*`).
 [*]
-# Unix-style newlines with a newline ending every file
+charset = utf-8
 end_of_line = lf
 insert_final_newline = false
+max_line_length = 79
+trim_trailing_whitespace = true
 
 # 8-tab indentation
 indent_style = tab
-indent_size = 8
+indent_size = tab
+tab_width = 8
