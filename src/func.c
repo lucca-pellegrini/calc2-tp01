@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: ISC
+
 /**
  * @file func.c
  * @brief Implementações das funções genéricas e específicas de polinômios.

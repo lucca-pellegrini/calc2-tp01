@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: ISC
+
 /**
  * @file riemann.h
  * @brief Declarações de tipos e funções para cálculo de somas de Riemann.

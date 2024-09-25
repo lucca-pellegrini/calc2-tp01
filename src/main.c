@@ -1,12 +1,14 @@
+// SPDX-License-Identifier: ISC
+
 /**
  * @file main.c
  * @brief Exemplo de uso das funções de polinômio e soma de Riemann.
  *
- * @details Este arquivo demonstra como criar e manipular uma função polinomial,
- * e como calcular a integral dessa função usando somas de Riemann. O exemplo
- * específico cria um polinômio de grau 2 (\f$f(x) = 2x^2\f$) e calcula sua
- * integral no intervalo \f$[0, 1]\f$ utilizando a soma de Riemann pela esquerda
- * com \f$2^{20}\f$ retângulos.
+ * @details Este arquivo demonstra como criar e manipular uma função
+ * polinomial, e como calcular a integral dessa função usando somas de Riemann.
+ * O exemplo específico cria um polinômio de grau 2 (\f$f(x) = 2x^2\f$) e
+ * calcula sua integral no intervalo \f$[0, 1]\f$ utilizando a soma de Riemann
+ * pela esquerda com \f$2^{20}\f$ retângulos.
  */
 
 #include <stdio.h>

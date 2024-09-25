@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: ISC
+
 /**
  * @file riemann.c
  * @brief Implementação das somas de Riemann para integração numérica.
@@ -5,8 +7,8 @@
  * @details Este arquivo contém as implementações das funções para calcular a
  * integral de uma função genérica usando somas de Riemann. As somas podem ser
  * calculadas utilizando a extremidade direita ou esquerda dos retângulos. As
- * funções aqui definidas permitem a integração numérica de funções encapsuladas
- * na estrutura `Function`.
+ * funções aqui definidas permitem a integração numérica de funções
+ * encapsuladas na estrutura `Function`.
  */
 
 #include <stdio.h>

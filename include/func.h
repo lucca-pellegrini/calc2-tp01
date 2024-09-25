@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: ISC
+
 /**
  * @file func.h
  * @brief Declarações de tipos e funções para manipulação de funções genéricas.

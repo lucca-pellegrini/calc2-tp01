@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: ISC
+
 /**
  * @file util.h
  * @brief Declarações de utilidades miscelâneas.
