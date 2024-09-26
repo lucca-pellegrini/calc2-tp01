@@ -16,8 +16,29 @@
 #ifndef FUNC_H
 #define FUNC_H
 
-// Tipo de ponteiro de função para avaliar uma função em x.
-typedef typeof(double (*)(double, void *)) eval_ptr_t;
+/**
+ * @brief Tipo de ponteiro de função para avaliar uma função genérica.
+ *
+ * @details Este tipo define um ponteiro para uma função que avalia uma função
+ * genérica encapsulada em uma estrutura `Function`. A função apontada deve
+ * aceitar dois parâmetros:
+ * - Um valor do tipo `double`, representando o ponto no qual a função deve ser
+ *   avaliada.
+ * - Um ponteiro `void *` para o objeto que implementa a função concreta.
+ *
+ * A função deve retornar um valor `double`, que é o resultado da avaliação da
+ * função concreta no ponto especificado.
+ *
+ * Exemplo de uso para avaliar a função arbitrária `func` em \f$x = 10\f$:
+ * @code
+ * double resultado = func->eval(10, func->impl);
+ * @endcode
+ *
+ * @param x O ponto no qual a função deve ser avaliada.
+ * @param impl Ponteiro para o objeto que implementa a função concreta.
+ * @return O valor da função avaliada no ponto especificado.
+ */
+typedef double (*eval_ptr_t)(double x, void *impl);
 
 /**
  * @brief Tipos de funções que podemos avaliar.
