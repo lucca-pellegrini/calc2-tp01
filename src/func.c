@@ -57,7 +57,7 @@ Function *function_new(FunctionType type, ...) // Recebe n + 1 parâmetros.
 
 	// Aloca memória para o objeto função e verifica se houve erro.
 	Function *func = malloc(sizeof(typeof(*func)));
-	ERRNOCHECK(func == NULL, "Falha ao alocar memória para função",
+	ERRNOCHECK(func == nullptr, "Falha ao alocar memória para função",
 		   cleanup);
 
 	switch (type) {
@@ -78,14 +78,14 @@ Function *function_new(FunctionType type, ...) // Recebe n + 1 parâmetros.
 	}
 
 	// Verifica se houve erro ao instanciar o objeto implementação.
-	ERRNOCHECK(func->impl == NULL, "func->impl é NULL", cleanup);
+	ERRNOCHECK(func->impl == nullptr, "func->impl é NULL", cleanup);
 
 	func->type = type; // Caso contrário, define o tipo da função.
 	return func; // Retorna a referência ao objeto.
 
 cleanup: // Se algum erro de alocação ocorreu, libera os recursos e retorna.
 	free(func);
-	return NULL;
+	return nullptr;
 }
 
 // Libera uma função arbitrária.
@@ -123,13 +123,13 @@ static Polynomial *polynomial_new(size_t degree, double *coeffs)
 {
 	// Aloca memória para o objeto e verifica se houve erro.
 	Polynomial *p = malloc(sizeof(Polynomial));
-	ERRNOCHECK(p == NULL, "Falha ao alocar memória para polinômio", ret);
+	ERRNOCHECK(p == nullptr, "Falha ao alocar memória para polinômio", ret);
 
 	p->degree = degree; // Define o grau do polinômio.
 
 	// Aloca memória para o arranjo de coeficientes e verifica erro.
 	p->coefficients = malloc((degree + 1) * sizeof(double));
-	ERRNOCHECK(p->coefficients == NULL,
+	ERRNOCHECK(p->coefficients == nullptr,
 		   "Falha ao alocar memória para os coeficientes", cleanup);
 
 	// Eficientemente copia os coeficientes recebidos para o objeto.
@@ -140,7 +140,7 @@ static Polynomial *polynomial_new(size_t degree, double *coeffs)
 cleanup:
 	free(p);
 ret:
-	return NULL;
+	return nullptr;
 }
 
 /**
