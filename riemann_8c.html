@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Cálculo II — Trabalho Prático 1: Referência ao ficheiro src/riemann.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js", "TeX/AMSmath.js.js", "TeX/AMSsymbols.js.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Cálculo II — Trabalho Prático 1
+   </div>
+   <div id="projectbrief">Aproxima a integral de uma função usando somas de Riemann</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('riemann_8c.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funções</a>  </div>
+  <div class="headertitle"><div class="title">Referência ao ficheiro riemann.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Implementação das somas de Riemann para integração numérica.  
+<a href="#details">Mais...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="riemann_8h_source.html">riemann.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="func_8h_source.html">func.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:a5840971dbe28c86ef498f8ff0edb4f90" id="r_a5840971dbe28c86ef498f8ff0edb4f90"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5840971dbe28c86ef498f8ff0edb4f90">riemann_esq</a> (double a, <a class="el" href="structFunction.html">Function</a> *func, size_t n, double dx)</td></tr>
+<tr class="memdesc:a5840971dbe28c86ef498f8ff0edb4f90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula a soma de Riemann pela esquerda.  <br /></td></tr>
+<tr class="separator:a5840971dbe28c86ef498f8ff0edb4f90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a228571bc4d7e2e7b33b420e10dacbab4" id="r_a228571bc4d7e2e7b33b420e10dacbab4"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a228571bc4d7e2e7b33b420e10dacbab4">riemann_dir</a> (double a, <a class="el" href="structFunction.html">Function</a> *func, size_t n, double dx)</td></tr>
+<tr class="memdesc:a228571bc4d7e2e7b33b420e10dacbab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula a soma de Riemann pela direita.  <br /></td></tr>
+<tr class="separator:a228571bc4d7e2e7b33b420e10dacbab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41f840b8163357fdd7b07560de72f0ed" id="r_a41f840b8163357fdd7b07560de72f0ed"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41f840b8163357fdd7b07560de72f0ed">riemann</a> (double min, double max, <a class="el" href="structFunction.html">Function</a> *func, size_t num, <a class="el" href="riemann_8h.html#ab916657d9e7fdfab0501565d39f995d2">SumType</a> type)</td></tr>
+<tr class="memdesc:a41f840b8163357fdd7b07560de72f0ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula uma soma de Riemann de uma função arbitrária em um intervalo.  <br /></td></tr>
+<tr class="separator:a41f840b8163357fdd7b07560de72f0ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Implementação das somas de Riemann para integração numérica. </p>
+<p>Este arquivo contém as implementações das funções para calcular a integral de uma função genérica usando somas de Riemann. As somas podem ser calculadas utilizando a extremidade direita ou esquerda dos retângulos. As funções aqui definidas permitem a integração numérica de funções encapsuladas na estrutura <code><a class="el" href="structFunction.html" title="Definição de uma função genérica abstrata.">Function</a></code>. </p>
+</div><h2 class="groupheader">Documentação das funções</h2>
+<a id="a41f840b8163357fdd7b07560de72f0ed" name="a41f840b8163357fdd7b07560de72f0ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41f840b8163357fdd7b07560de72f0ed">&#9670;&#160;</a></span>riemann()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double riemann </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>min</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>max</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structFunction.html">Function</a> *</td>          <td class="paramname"><span class="paramname"><em>func</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>num</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="riemann_8h.html#ab916657d9e7fdfab0501565d39f995d2">SumType</a></td>          <td class="paramname"><span class="paramname"><em>type</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcula uma soma de Riemann de uma função arbitrária em um intervalo. </p>
+<p>Esta função calcula a soma de Riemann de uma função arbitrária no intervalo \([min, max]\) usando um número especificado de retângulos. O tipo de soma de Riemann (esquerda ou direita) é determinado pelo parâmetro <code>type</code>.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">min</td><td>O limite inferior do intervalo de integração. </td></tr>
+    <tr><td class="paramname">max</td><td>O limite superior do intervalo de integração. </td></tr>
+    <tr><td class="paramname">func</td><td>Ponteiro para a função a ser integrada. </td></tr>
+    <tr><td class="paramname">num</td><td>O número de retângulos a serem usados na soma de Riemann. </td></tr>
+    <tr><td class="paramname">type</td><td>O tipo de soma de Riemann (esquerda ou direita). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O valor aproximado da integral da função no intervalo especificado. </dd></dl>
+
+</div>
+</div>
+<a id="a228571bc4d7e2e7b33b420e10dacbab4" name="a228571bc4d7e2e7b33b420e10dacbab4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a228571bc4d7e2e7b33b420e10dacbab4">&#9670;&#160;</a></span>riemann_dir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double riemann_dir </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>a</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structFunction.html">Function</a> *</td>          <td class="paramname"><span class="paramname"><em>func</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>n</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>dx</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calcula a soma de Riemann pela direita. </p>
+<p>Para cada \(i\) no intervalo \([1, n]\), esta função avalia a função arbitrária <code>func</code> em \(x = a + i \cdot \Delta x\), onde \(a\) é o limite inicial da integração, e \(n\) é o número de retângulos. O resultado é acumulado e multiplicado pela base dos retângulos ( \(\Delta
+x\)).</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Limite inicial da integração. </td></tr>
+    <tr><td class="paramname">func</td><td>Ponteiro para a função a ser integrada. </td></tr>
+    <tr><td class="paramname">n</td><td>Número de retângulos. </td></tr>
+    <tr><td class="paramname">dx</td><td>Largura de cada retângulo. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O valor aproximado da integral. </dd></dl>
+
+</div>
+</div>
+<a id="a5840971dbe28c86ef498f8ff0edb4f90" name="a5840971dbe28c86ef498f8ff0edb4f90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5840971dbe28c86ef498f8ff0edb4f90">&#9670;&#160;</a></span>riemann_esq()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double riemann_esq </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>a</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structFunction.html">Function</a> *</td>          <td class="paramname"><span class="paramname"><em>func</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>n</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>dx</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calcula a soma de Riemann pela esquerda. </p>
+<p>Para cada \(i\) no intervalo \([0, n)\), esta função avalia a função arbitrária <code>func</code> em \(x = a + i \cdot \Delta x\), onde \(a\) é o limite inicial da integração, e \(n\) é o número de retângulos. O resultado é acumulado e multiplicado pela base dos retângulos ( \(\Delta
+x\)).</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Limite inicial da integração. </td></tr>
+    <tr><td class="paramname">func</td><td>Ponteiro para a função a ser integrada. </td></tr>
+    <tr><td class="paramname">n</td><td>Número de retângulos. </td></tr>
+    <tr><td class="paramname">dx</td><td>Largura de cada retângulo. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O valor aproximado da integral. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="riemann_8c.html">riemann.c</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

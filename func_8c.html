@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Cálculo II — Trabalho Prático 1: Referência ao ficheiro src/func.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js", "TeX/AMSmath.js.js", "TeX/AMSsymbols.js.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Cálculo II — Trabalho Prático 1
+   </div>
+   <div id="projectbrief">Aproxima a integral de uma função usando somas de Riemann</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('func_8c.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Componentes</a> &#124;
+<a href="#func-members">Funções</a>  </div>
+  <div class="headertitle"><div class="title">Referência ao ficheiro func.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Implementações das funções genéricas e específicas de polinômios.  
+<a href="#details">Mais...</a></p>
+<div class="textblock"><code>#include &lt;stdarg.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="func_8h_source.html">func.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="util_8h_source.html">util.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Componentes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structPolynomial.html">Polynomial</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura que define um polinômio clássico de grau arbitrário.  <a href="structPolynomial.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:abc5b47cca4f6965449a5e33d9d6ebbd8" id="r_abc5b47cca4f6965449a5e33d9d6ebbd8"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structPolynomial.html">Polynomial</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc5b47cca4f6965449a5e33d9d6ebbd8">polynomial_new</a> (size_t degree, double *coeffs)</td></tr>
+<tr class="memdesc:abc5b47cca4f6965449a5e33d9d6ebbd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instancia um objeto que implementa uma função de tipo polinômio.  <br /></td></tr>
+<tr class="separator:abc5b47cca4f6965449a5e33d9d6ebbd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a230c20684f5ca1bdd96592f869850551" id="r_a230c20684f5ca1bdd96592f869850551"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a230c20684f5ca1bdd96592f869850551">polynomial_free</a> (<a class="el" href="structPolynomial.html">Polynomial</a> *ptr)</td></tr>
+<tr class="memdesc:a230c20684f5ca1bdd96592f869850551"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libera um objeto que implementa uma função de tipo polinômio.  <br /></td></tr>
+<tr class="separator:a230c20684f5ca1bdd96592f869850551"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d2a3b3d409209eb08f7270826486496" id="r_a3d2a3b3d409209eb08f7270826486496"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d2a3b3d409209eb08f7270826486496">polynomial_eval</a> (double x, <a class="el" href="structPolynomial.html">Polynomial</a> *ptr)</td></tr>
+<tr class="memdesc:a3d2a3b3d409209eb08f7270826486496"><td class="mdescLeft">&#160;</td><td class="mdescRight">Avalia um dado objeto polinômio passado pela referência <code>ptr</code> em um dado <code>x</code>.  <br /></td></tr>
+<tr class="separator:a3d2a3b3d409209eb08f7270826486496"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc117bcbc34e32e18f729c2a97bc7357" id="r_abc117bcbc34e32e18f729c2a97bc7357"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structFunction.html">Function</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc117bcbc34e32e18f729c2a97bc7357">function_new</a> (<a class="el" href="func_8h.html#a42a11575cc237e37732d560240e04371">FunctionType</a> type,...)</td></tr>
+<tr class="memdesc:abc117bcbc34e32e18f729c2a97bc7357"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instancia uma função arbitrária a partir de um tipo e de n parâmetros.  <br /></td></tr>
+<tr class="separator:abc117bcbc34e32e18f729c2a97bc7357"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a4e923de5bcaa1914fa7ee3c046f780" id="r_a0a4e923de5bcaa1914fa7ee3c046f780"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a4e923de5bcaa1914fa7ee3c046f780">function_free</a> (<a class="el" href="structFunction.html">Function</a> *func)</td></tr>
+<tr class="memdesc:a0a4e923de5bcaa1914fa7ee3c046f780"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libera uma função arbitrária.  <br /></td></tr>
+<tr class="separator:a0a4e923de5bcaa1914fa7ee3c046f780"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Implementações das funções genéricas e específicas de polinômios. </p>
+<p>Este arquivo contém as implementações das funções genéricas e específicas para manipulação de funções abstratas e polinômios. Ele inclui a criação, avaliação e liberação de funções genéricas, bem como as implementações específicas para funções do tipo polinômio. A estrutura <code><a class="el" href="structFunction.html" title="Definição de uma função genérica abstrata.">Function</a></code> é utilizada para encapsular diferentes tipos de funções, e as funções aqui definidas permitem a manipulação dessas estruturas de maneira uniforme. </p>
+</div><h2 class="groupheader">Documentação das funções</h2>
+<a id="a0a4e923de5bcaa1914fa7ee3c046f780" name="a0a4e923de5bcaa1914fa7ee3c046f780"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a4e923de5bcaa1914fa7ee3c046f780">&#9670;&#160;</a></span>function_free()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void function_free </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structFunction.html">Function</a> *</td>          <td class="paramname"><span class="paramname"><em>func</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libera uma função arbitrária. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>Ponteiro para a função a ser liberada. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abc117bcbc34e32e18f729c2a97bc7357" name="abc117bcbc34e32e18f729c2a97bc7357"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc117bcbc34e32e18f729c2a97bc7357">&#9670;&#160;</a></span>function_new()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structFunction.html">Function</a> * function_new </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="func_8h.html#a42a11575cc237e37732d560240e04371">FunctionType</a></td>          <td class="paramname"><span class="paramname"><em>type</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>...</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Instancia uma função arbitrária a partir de um tipo e de n parâmetros. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>O tipo da função. </td></tr>
+    <tr><td class="paramname">...</td><td>Parâmetros variáveis dependendo do tipo da função. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Ponteiro para a nova função criada. </dd></dl>
+<dl class="section note"><dt>Nota</dt><dd>Ignorar o retorno pode causar vazamento de memória. </dd></dl>
+
+</div>
+</div>
+<a id="a3d2a3b3d409209eb08f7270826486496" name="a3d2a3b3d409209eb08f7270826486496"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d2a3b3d409209eb08f7270826486496">&#9670;&#160;</a></span>polynomial_eval()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double polynomial_eval </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>x</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structPolynomial.html">Polynomial</a> *</td>          <td class="paramname"><span class="paramname"><em>ptr</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Avalia um dado objeto polinômio passado pela referência <code>ptr</code> em um dado <code>x</code>. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>O valor em que o polinômio será avaliado. </td></tr>
+    <tr><td class="paramname">ptr</td><td>Ponteiro para o objeto polinômio. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O valor do polinômio avaliado em <code>x</code>. </dd></dl>
+<dl class="section note"><dt>Nota</dt><dd>Essa função é definida com vinculação externa pois não é invocada nessa unidade de compilação. </dd></dl>
+
+</div>
+</div>
+<a id="a230c20684f5ca1bdd96592f869850551" name="a230c20684f5ca1bdd96592f869850551"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a230c20684f5ca1bdd96592f869850551">&#9670;&#160;</a></span>polynomial_free()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void polynomial_free </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPolynomial.html">Polynomial</a> *</td>          <td class="paramname"><span class="paramname"><em>ptr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Libera um objeto que implementa uma função de tipo polinômio. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Ponteiro para o objeto polinômio a ser liberado. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abc5b47cca4f6965449a5e33d9d6ebbd8" name="abc5b47cca4f6965449a5e33d9d6ebbd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc5b47cca4f6965449a5e33d9d6ebbd8">&#9670;&#160;</a></span>polynomial_new()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structPolynomial.html">Polynomial</a> * polynomial_new </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>degree</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>coeffs</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Instancia um objeto que implementa uma função de tipo polinômio. </p>
+<p>Recebe um grau (número natural) e um arranjo com os coeficientes, em ordem crescente. Ex.: Para um \(f(x) = 1 + 2x^2 + 3x^4\), o grau será 4, e o arranjo será: \({1, 0, 2, 0, 3}\).</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">degree</td><td>O grau do polinômio. </td></tr>
+    <tr><td class="paramname">coeffs</td><td>Arranjo com os coeficientes do polinômio. Seu tamanho deve ser no mínimo \(\left(\text{grau}- 1\right)\). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Ponteiro para o objeto polinômio criado. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="func_8c.html">func.c</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>
