@@ -43,7 +43,7 @@ BIN      = $(OUT_DIR)/$(NAME)
 # Ative as opções de análise estática de código do GCC.
 GCCCFLAGS   += --debug -fanalyzer -Wanalyzer-too-complex
 # Desative o aviso do Clang sobre falta de newline ao final do arquivo.
-CLANGCFLAGS += --debug -Wno-newline-eof --analyze
+CLANGCFLAGS += --debug -Wno-newline-eof
 # CLANGCFLAGS += -Xanalyzer ...
 
 ifeq ($(CC),gcc)
