@@ -110,7 +110,7 @@ clean:
 	$(RMDIR) $(OUT_DIR)
 
 # Como criar o executável distributível.
-release: $(BIN)-release docs docs-pdf
+release: $(BIN)-release docs
 
 # Como criar executável sem símbolos de debugging.
 $(BIN)-stripped: $(BIN)
@@ -125,14 +125,10 @@ $(BIN)-release: $(BIN)-stripped
 ## Regras para gerar documentação. ############################################
 # Gera a documentação usando Doxygen.
 docs: $(OUT_DIR)/docs/html/index.html
-docs-pdf: $(OUT_DIR)/docs/latex/refman.pdf
-
-$(OUT_DIR)/docs/latex/refman.pdf: $(OUT_DIR)/docs/html/index.html
-	$(MAKE) --directory=$(OUT_DIR)/docs/latex/
 
 $(OUT_DIR)/docs/html/index.html: docs/Doxyfile $(SRCS) $(HEADERS) | $(OUT_DIR)/
 	doxygen docs/Doxyfile
 
 
 ## Alvos que não correspondem diretamente a arquivos ou diretórios. ###########
-.PHONY: all clean release docs docs-pdf
+.PHONY: all clean release docs
