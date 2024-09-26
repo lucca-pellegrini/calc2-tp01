@@ -216,11 +216,10 @@ Funções</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Calcula a soma de Riemann pela direita. </p>
-<p>Para cada \(i\) no intervalo \([1, n]\), esta função avalia a função arbitrária <code>func</code> em \(x = a + i \cdot \Delta x\), onde \(a\) é o limite inicial da integração, e \(n\) é o número de retângulos. O resultado é acumulado e multiplicado pela base dos retângulos ( \(\Delta
-x\)).</p>
+<p>Para cada \(i\) inteiro no intervalo \([1, n]\), esta função avalia a função arbitrária <code>func</code> em \(x_i = a + i \cdot \Delta x\), onde \(a\) é o limite inferior da integração, e \(n\) é o número de retângulos. O resultado é acumulado e multiplicado pela base dos retângulos ( \(\Delta x\)).</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td>Limite inicial da integração. </td></tr>
+    <tr><td class="paramname">a</td><td>Limite inferior da integração. </td></tr>
     <tr><td class="paramname">func</td><td>Ponteiro para a função a ser integrada. </td></tr>
     <tr><td class="paramname">n</td><td>Número de retângulos. </td></tr>
     <tr><td class="paramname">dx</td><td>Largura de cada retângulo. </td></tr>
@@ -269,11 +268,10 @@ x\)).</p>
 </div><div class="memdoc">
 
 <p>Calcula a soma de Riemann pela esquerda. </p>
-<p>Para cada \(i\) no intervalo \([0, n)\), esta função avalia a função arbitrária <code>func</code> em \(x = a + i \cdot \Delta x\), onde \(a\) é o limite inicial da integração, e \(n\) é o número de retângulos. O resultado é acumulado e multiplicado pela base dos retângulos ( \(\Delta
-x\)).</p>
+<p>Para cada \(i\) inteiro no intervalo \([0, n)\), esta função avalia a função arbitrária <code>func</code> em \(x_i = a + i \cdot \Delta x\), onde \(a\) é o limite inferior da integração, e \(n\) é o número de retângulos. O resultado é acumulado e multiplicado pela base dos retângulos ( \(\Delta x\)).</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td>Limite inicial da integração. </td></tr>
+    <tr><td class="paramname">a</td><td>Limite inferior da integração. </td></tr>
     <tr><td class="paramname">func</td><td>Ponteiro para a função a ser integrada. </td></tr>
     <tr><td class="paramname">n</td><td>Número de retângulos. </td></tr>
     <tr><td class="paramname">dx</td><td>Largura de cada retângulo. </td></tr>
