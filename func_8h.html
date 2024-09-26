@@ -128,6 +128,9 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Definições de tipos</h2></td></tr>
+<tr class="memitem:ab9772ee831b07358678823f75b674e08" id="r_ab9772ee831b07358678823f75b674e08"><td class="memItemLeft" align="right" valign="top">typedef double(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9772ee831b07358678823f75b674e08">eval_ptr_t</a>) (double x, void *impl)</td></tr>
+<tr class="memdesc:ab9772ee831b07358678823f75b674e08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tipo de ponteiro de função para avaliar uma função genérica.  <br /></td></tr>
+<tr class="separator:ab9772ee831b07358678823f75b674e08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04df4dd659c1b87b4ebf9624bec6cea1" id="r_a04df4dd659c1b87b4ebf9624bec6cea1"><td class="memItemLeft" align="right" valign="top">typedef struct Function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04df4dd659c1b87b4ebf9624bec6cea1">Function</a></td></tr>
 <tr class="memdesc:a04df4dd659c1b87b4ebf9624bec6cea1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Definição de uma função genérica abstrata.  <br /></td></tr>
 <tr class="separator:a04df4dd659c1b87b4ebf9624bec6cea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -141,8 +144,6 @@ Enumerações</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Funções</h2></td></tr>
-<tr class="memitem:abea9392977d2be613751416f3fc23326" id="r_abea9392977d2be613751416f3fc23326"><td class="memItemLeft" align="right" valign="top">typedef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abea9392977d2be613751416f3fc23326">typeof</a> (double(*)(double, void *)) eval_ptr_t</td></tr>
-<tr class="separator:abea9392977d2be613751416f3fc23326"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc117bcbc34e32e18f729c2a97bc7357" id="r_abc117bcbc34e32e18f729c2a97bc7357"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structFunction.html">Function</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc117bcbc34e32e18f729c2a97bc7357">function_new</a> (<a class="el" href="#a42a11575cc237e37732d560240e04371">FunctionType</a> type,...)</td></tr>
 <tr class="memdesc:abc117bcbc34e32e18f729c2a97bc7357"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instancia uma função arbitrária a partir de um tipo e de n parâmetros.  <br /></td></tr>
 <tr class="separator:abc117bcbc34e32e18f729c2a97bc7357"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -169,6 +170,36 @@ Funções</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Documentação dos tipos</h2>
+<a id="ab9772ee831b07358678823f75b674e08" name="ab9772ee831b07358678823f75b674e08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9772ee831b07358678823f75b674e08">&#9670;&#160;</a></span>eval_ptr_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef double(* eval_ptr_t) (double x, void *impl)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tipo de ponteiro de função para avaliar uma função genérica. </p>
+<p>Este tipo define um ponteiro para uma função que avalia uma função genérica encapsulada em uma estrutura <code><a class="el" href="structFunction.html" title="Definição de uma função genérica abstrata.">Function</a></code>. A função apontada deve aceitar dois parâmetros:</p><ul>
+<li>Um valor do tipo <code>double</code>, representando o ponto no qual a função deve ser avaliada.</li>
+<li>Um ponteiro <code>void *</code> para o objeto que implementa a função concreta.</li>
+</ul>
+<p>A função deve retornar um valor <code>double</code>, que é o resultado da avaliação da função concreta no ponto especificado.</p>
+<p>Exemplo de uso para avaliar a função arbitrária <code>func</code> em \(x = 10\): </p><div class="fragment"><div class="line"><span class="keywordtype">double</span> resultado = func-&gt;eval(10, func-&gt;impl);</div>
+</div><!-- fragment --><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>O ponto no qual a função deve ser avaliada. </td></tr>
+    <tr><td class="paramname">impl</td><td>Ponteiro para o objeto que implementa a função concreta. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O valor da função avaliada no ponto especificado. </dd></dl>
+
+</div>
+</div>
 <a id="a04df4dd659c1b87b4ebf9624bec6cea1" name="a04df4dd659c1b87b4ebf9624bec6cea1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a04df4dd659c1b87b4ebf9624bec6cea1">&#9670;&#160;</a></span>Function</h2>
 
@@ -262,23 +293,6 @@ Funções</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>Ponteiro para a nova função criada. </dd></dl>
 <dl class="section note"><dt>Nota</dt><dd>Ignorar o retorno pode causar vazamento de memória. </dd></dl>
-
-</div>
-</div>
-<a id="abea9392977d2be613751416f3fc23326" name="abea9392977d2be613751416f3fc23326"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abea9392977d2be613751416f3fc23326">&#9670;&#160;</a></span>typeof()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef typeof </td>
-          <td>(</td>
-          <td class="paramtype">double(*)(double, void *)</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>

@@ -3,9 +3,9 @@ var indexSectionsWithContent =
   0: "cdefimprstu",
   1: "fp",
   2: "fmru",
-  3: "fmprt",
+  3: "fmpr",
   4: "cdeit",
-  5: "f",
+  5: "ef",
   6: "fs",
   7: "dep",
   8: "efru"
