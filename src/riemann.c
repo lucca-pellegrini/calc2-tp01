@@ -46,11 +46,11 @@ double riemann(double min, double max, Function *func, size_t num, SumType type)
 /**
  * @brief Calcula a soma de Riemann pela direita.
  *
- * @details Para cada \f$i\f$ no intervalo \f$[1, n]\f$, esta função avalia a
- * função arbitrária `func` em \f$x = a + i \cdot \Delta x\f$, onde \f$a\f$ é o
- * limite inferior da integração, e \f$n\f$ é o número de retângulos. O
- * resultado é acumulado e multiplicado pela base dos retângulos (\f$\Delta
- * x\f$).
+ * @details Para cada \f$i\f$ inteiro no intervalo \f$[1, n]\f$, esta função
+ * avalia a função arbitrária `func` em \f$x_i = a + i \cdot \Delta x\f$, onde
+ * \f$a\f$ é o limite inferior da integração, e \f$n\f$ é o número de
+ * retângulos. O resultado é acumulado e multiplicado pela base dos retângulos
+ * (\f$\Delta x\f$).
  *
  * @param a Limite inferior da integração.
  * @param func Ponteiro para a função a ser integrada.
@@ -73,11 +73,11 @@ static double riemann_dir(double a, Function *func, size_t n, double dx)
 /**
  * @brief Calcula a soma de Riemann pela esquerda.
  *
- * @details Para cada \f$i\f$ no intervalo \f$[0, n)\f$, esta função avalia a
- * função arbitrária `func` em \f$x = a + i \cdot \Delta x\f$, onde \f$a\f$ é o
- * limite inferior da integração, e \f$n\f$ é o número de retângulos. O
- * resultado é acumulado e multiplicado pela base dos retângulos (\f$\Delta
- * x\f$).
+ * @details Para cada \f$i\f$ inteiro no intervalo \f$[0, n)\f$, esta função
+ * avalia a função arbitrária `func` em \f$x_i = a + i \cdot \Delta x\f$, onde
+ * \f$a\f$ é o limite inferior da integração, e \f$n\f$ é o número de
+ * retângulos. O resultado é acumulado e multiplicado pela base dos retângulos
+ * (\f$\Delta x\f$).
  *
  * @param a Limite inferior da integração.
  * @param func Ponteiro para a função a ser integrada.
