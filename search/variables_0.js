@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['coefficients_0',['coefficients',['../structPolynomial.html#ae7dd29c240128f8a131dadce12a548c3',1,'Polynomial']]]
+  ['a_0',['a',['../structLimites.html#abc8f33108e446f52a888ebd9454543b1',1,'Limites']]]
 ];

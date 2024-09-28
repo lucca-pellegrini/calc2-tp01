@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['degree_0',['degree',['../structPolynomial.html#a6458c745a236fe958f444e975c7a0204',1,'Polynomial']]]
+  ['b_0',['b',['../structLimites.html#a063a551c1b8758bc91600e1156755333',1,'Limites']]]
 ];
