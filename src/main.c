@@ -76,13 +76,26 @@ int main(void)
 		size_t g = graus[i];
 		Limites l = limites[i];
 
-		printf("%c) ∫(", 'a' + i);
+		// Usaremos um buffer estático de saída para alinhar o texto.
+		char polynomial[1<<8];
+		int offset = 0;
+		offset += snprintf(polynomial + offset,
+				   sizeof(polynomial) - offset, "∫(");
 		if (c[0])
-			printf("%g + ", c[0]);
+			offset += snprintf(polynomial + offset,
+					   sizeof(polynomial) - offset, "%g + ",
+					   c[0]);
 		for (size_t j = 1; j < g; ++j)
 			if (c[j])
-				printf("%gx^%ju + ", c[j], j);
-		printf("%gx^%ju)\tentre [%g, %g]\n", c[g], g, l.a, l.b);
+				offset += snprintf(polynomial + offset,
+						   sizeof(polynomial) - offset,
+						   "%gx^%ju + ", c[j], j);
+		snprintf(polynomial + offset, sizeof(polynomial) - offset,
+			 "%gx^%ju)dx", c[g], g);
+
+		// Imprime o resultado com alinhamento
+		printf("%c) %-20s entre [%g, %g]\n", 'a' + i, polynomial, l.a,
+		       l.b);
 	}
 
 	// Executa todas as somas.
