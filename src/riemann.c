@@ -69,7 +69,6 @@ static double riemann_dir(double a, Function *func, size_t n, double dx)
 	return res * dx;
 }
 
-
 /**
  * @brief Calcula a soma de Riemann pela esquerda.
  *
