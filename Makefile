@@ -121,6 +121,10 @@ $(BIN)-release: $(BIN)-stripped
 	upx -qqo $(BIN)-upx $(BIN)-stripped
 	mv -f $(BIN)-upx $(BIN)-release
 
+# Como executar o programa principal.
+run: $(BIN)
+	@$(BIN)
+
 
 ## Regras para gerar documentação. ############################################
 # Gera a documentação usando Doxygen.
@@ -131,4 +135,4 @@ $(OUT_DIR)/docs/html/index.html: docs/Doxyfile $(SRCS) $(HEADERS) | $(OUT_DIR)/
 
 
 ## Alvos que não correspondem diretamente a arquivos ou diretórios. ###########
-.PHONY: all clean release docs
+.PHONY: all clean release docs run
