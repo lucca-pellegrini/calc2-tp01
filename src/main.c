@@ -17,21 +17,74 @@
 #include "func.h"
 #include "riemann.h"
 
+typedef struct {
+	double a, b;
+} Limites;
+
 int main(void)
 {
-	// Coeficientes para uma função polinomial:
-	// f(x) = 0x^0 + 0x^1 + 2x^2 => f(x) = 2x^2
-	double coeficientes[] = { 0, 0, 2 };
-	// Instancia um objeto Função de tipo Polinomial de grau 2
-	// (quadrático), usando os coeficientes acima.
-	Function *polinomio = function_new(POLYNOMIAL, 2, coeficientes);
+	// Definições das funções e dos limites de cada questão.
+	constexpr int num_questoes = 4;
+	double coefs[num_questoes][5] = {
+		{ 1, 0, 0, 1 }, { 1, 0, -1 }, { 0, 0, 0, 0, 1 }, { -1, 0, 1 }
+	};
+	const size_t graus[num_questoes] = { 3, 2, 4, 2 };
+	const Limites limites[num_questoes] = {
+		{ 1, 2 }, { 3, 5 }, { 7, 9 }, { -1, 1 }
+	};
+	Function *a = function_new(POLYNOMIAL, graus[0], coefs[0]),
+		 *b = function_new(POLYNOMIAL, graus[1], coefs[1]),
+		 *c = function_new(POLYNOMIAL, graus[2], coefs[2]),
+		 *d = function_new(POLYNOMIAL, graus[3], coefs[3]);
+	Function *questoes[num_questoes] = { a, b, c, d };
 
-	// Avalia a soma de Riemann no intervalo [0, 1] da função, usando
-	// 1,048,576 (2^{20}) retângulos, amostrando os valores de f(x_i) pela
-	// esquerda.
-	printf("%g\n", riemann(0, 1, polinomio, 1 << 20, ESQUERDA));
+	// Quantidades de retângulos que usaremos em cada iteração.
+	constexpr int num_valores = 6;
+	const size_t valores[num_valores] = { 100, 300, 600, 1000, 1500, 2000 };
 
-	// Libera todos os recursos alocados para a função polinomial.
-	function_free(polinomio);
+	// Tipos de somas de Riemann que realizaremos.
+	constexpr int num_tipos = 2;
+	const SumType tipos[num_tipos] = { DIREITA, ESQUERDA };
+
+	// Exibe um cabeçalho com as definições dos polinômios.
+	puts("Integraremos os seguintes polinômios:");
+	for (int i = 0; i < num_questoes; ++i) {
+		double *c = coefs[i];
+		size_t g = graus[i];
+		Limites l = limites[i];
+
+		printf("%c) ∫(", 'a' + i);
+		if (c[0])
+			printf("%g + ", c[0]);
+		for (size_t j = 1; j < g; ++j)
+			if (c[j])
+				printf("%gx^%ju + ", c[j], j);
+		printf("%gx^%ju)\tentre [%g, %g]\n", c[g], g, l.a, l.b);
+	}
+
+	// Executa todas as somas.
+	for (int i = 0; i < num_tipos; ++i) {
+		SumType t = tipos[i];
+		printf("\nCalculando somas de Riemann pela %s:\n",
+		       t == DIREITA ? "direita" : "esquerda");
+
+		for (int i = 0; i < num_valores; ++i) {
+			size_t n = valores[i];
+			printf("n = %4ju:", n);
+
+			for (int i = 0; i < num_questoes; ++i) {
+				Function *f = questoes[i];
+				Limites l = limites[i];
+				double res = riemann(l.a, l.b, f, n, t);
+
+				printf("\t%c) %g", i + 'a', res);
+			}
+
+			putchar('\n');
+		}
+	}
+
+	for (int i = 0; i < num_questoes; ++i)
+		function_free(questoes[i]);
 	return EXIT_SUCCESS;
 }
