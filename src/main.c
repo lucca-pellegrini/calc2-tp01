@@ -6,9 +6,15 @@
  *
  * @details Este arquivo demonstra como criar e manipular uma função
  * polinomial, e como calcular a integral dessa função usando somas de Riemann.
- * O exemplo específico cria um polinômio de grau 2 (\f$f(x) = 2x^2\f$) e
- * calcula sua integral no intervalo \f$[0, 1]\f$ utilizando a soma de Riemann
- * pela esquerda com \f$2^{20}\f$ retângulos.
+ * O exemplo específico considera quatro polinômios:
+ * - a) \f$ \int_{1}^{2} (x^3 + 1) \, dx \f$
+ * - b) \f$ \int_{3}^{5} (1 - x^2) \, dx \f$
+ * - c) \f$ \int_{7}^{9} x^4 \, dx \f$
+ * - d) \f$ \int_{-1}^{1} (x^2 - 1) \, dx \f$
+ *
+ * O programa calcula a integral desses polinômios nos intervalos especificados
+ * utilizando a soma de Riemann pela direita e pela esquerda com diferentes
+ * quantidades de retângulos: 100, 300, 600, 1000, 1500 e 2000.
  */
 
 #include <stdio.h>
@@ -17,10 +23,27 @@
 #include "func.h"
 #include "riemann.h"
 
+/**
+ * @brief Estrutura que representa os limites de integração.
+ */
 typedef struct {
-	double a, b;
+	double a; /**< Limite inferior de integração */
+	double b; /**< Limite superior de integração */
 } Limites;
 
+/**
+ * @brief Função principal do programa.
+ *
+ * @details Esta função define os polinômios e seus limites de integração,
+ * calcula as integrais utilizando somas de Riemann pela direita e pela
+ * esquerda, e exibe os resultados. Os polinômios considerados são:
+ * - a) \f$ \int_{1}^{2} (x^3 + 1) \, dx \f$
+ * - b) \f$ \int_{3}^{5} (1 - x^2) \, dx \f$
+ * - c) \f$ \int_{7}^{9} x^4 \, dx \f$
+ * - d) \f$ \int_{-1}^{1} (x^2 - 1) \, dx \f$
+ *
+ * @return EXIT_SUCCESS em caso de sucesso.
+ */
 int main(void)
 {
 	// Definições das funções e dos limites de cada questão.
